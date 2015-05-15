@@ -2,12 +2,12 @@ extends layout
 block content
 
 	div.container.bg-primary
-
-		div.register_form
+		div.register_form(method="POST", action="/user/register", name="registerForm")
 		h3 Register Your Savings Multiplied Account!
 		p Username
 			input(type="text" id="username" name="username")
 		P Password
 			input(type="password" id="password" name="password")
 
-		input(class="submitButton" type="submit")
+		input(type="submit", class="submitButton", value="submit")
+
