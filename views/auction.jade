@@ -1,0 +1,78 @@
+extends layout
+link(rel='stylesheet', href='stylesheets/auction.css')
+
+block content
+
+	div.container.bg-primary
+
+			div.form_panel
+				div.row
+					div.col-md-3
+						P Limit your search by:
+						hr
+						input(type="search")
+						P condition:
+						input(type='radio', name="condition" value="New")
+						| New
+						input(type='radio', name="condition" value="Gently Used")
+						| Gently Used
+						P Size:
+						input(type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4")
+						| 4
+						input(type="radio" name="inlineRadioOptions" id="inlineRadio8" value="8")
+						| 8
+						br
+						input(type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5")
+						| 5
+						input(type="radio" name="inlineRadioOptions" id="inlineRadio9" value="9")
+						| 9
+						br
+						input(type="radio" name="inlineRadioOptions" id="inlineRadio6" value="6")
+						| 6
+						input(type="radio" name="inlineRadioOptions" id="inlineRadio10" value="10")
+						| 10
+						br
+						input(type="radio" name="inlineRadioOptions" id="inlineRadio7" value="7")
+						| 7
+						input(type="radio" name="inlineRadioOptions" id="inlineRadio11" value="11")
+						| 11
+						p Season:
+						input(type ="radio" name="seasons" value="all_seasons")
+						|All Seasons
+						br
+						input(type ="radio" name="seasons" value="Spring")
+						| Spring
+						br
+						input(type ="radio" name="seasons" value="Summer")
+						| Summer
+						br
+						input(type ="radio" name="seasons" value="Fall")
+						| Fall
+						br
+						input(type ="radio" name="seasons" value="Winter")
+						| Winter
+						br
+
+						P Type:
+						input(type ="radio" name="type" value="any")
+						| Any
+						br
+						input(type ="radio" name="type" value="One-piece")
+						| One-piece
+						br
+						input(type ="radio" name="type" value="Tops")
+						| Tops
+						br
+						input(type ="radio" name="type" value="Bottoms")
+						| Bottoms
+						br
+
+						P Brand:
+
+					div.items
+						P Auction items
+					div.footer
+							div.row
+							div.col-md-4
+							p(center) LINK HERE | LINK HERE  | LINK HERE | LINK HERE | LINK HERE | LINK HERE
+

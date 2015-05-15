@@ -1,0 +1,46 @@
+layout
+doctype html
+html
+head
+	title= title
+	link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css')
+	link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
+	link(rel='stylesheet', href='stylesheets/main.css')
+	link(rel='stylesheet', href='stylesheets/auction.css')
+
+	body
+	header
+	div.container
+	div.row
+		div.pull-left.col-md-3.col-md-offset-9
+			a(href="register") Sign In |
+			a(href="sign out")  Sign Out
+	div.container.bg-primary
+		div.smimg
+			img.img-responsive(src='/images/savings-multiplied-logo.png' )
+
+		div.buttons
+			button(class-"btn") About
+			button(class-"btn") Contact
+			button(class-"btn") Blog
+			button(class-"btn") Press
+			img.img(src="../images/tagline.png")
+	div.container.navbar
+		div.row
+			div.col-md-1
+			div.col-md-1
+				a(href="Buy") Buy
+			div.col-md-1
+				a(href="Sell") Sell
+			div.col-md-2
+				a(href="How It Works") How It Works
+			div.col-md-1
+				a(href="Links") Links
+			div.col-md-1
+			a(href="Community") Community
+			div.col-md-1
+				a(href="Search") Search
+			div.col-md-1
+
+
+	block content

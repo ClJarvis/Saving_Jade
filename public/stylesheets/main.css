@@ -1,0 +1,159 @@
+
+header div{
+	background: #D5F1F0; /*rgba(112, */
+	height: 200px;
+}
+
+
+body {
+	background: #69C4CC;
+	color: #8db639;
+}
+
+/*div {
+	border: 1px dashed black;
+}*/
+
+h3 {
+	color:   #8db639;
+}
+
+.h3{ display: inline-block;
+
+}
+
+
+
+li {
+	list-style-type: none;
+}
+
+.bg-primary{
+  background-color: white;
+  color: black !important;
+
+}
+
+
+#sort_results{
+	width: 25%;
+}
+
+#Limit_search{
+	width: 85%;
+}
+
+
+.navbar{
+	background-color:  #F3CECD;
+	color:  #6F1549;
+	height: 15px;
+	z-index: 999;
+	font-weight: bolder;
+	font-size: 1em;
+	margin-bottom: 0;
+}
+
+
+#dotted_div{
+	background-image: url("/images/homepage/dotted_line_44x9.png");
+     background-repeat: repeat-x;
+
+}
+
+/*#topbg {
+	background-color:  white;
+	border-radius:  25px 25px 0 0;
+	margin:  -70px  0 15px 10px;
+	padding:  0 100px 0 0;
+}*/
+
+
+/*#centerbg {
+	background-color:  white;
+	height:  670px;
+	border-radius:  0 0 25px 25px;
+	margin:  -24px  0 15px 10px;
+	padding:  0 100px 0 0;
+
+
+}*/
+
+/* BORDERS FOR VISUAL LOCATION */
+/*
+.row{
+	border-style: dotted;
+	border-color: green;
+}
+
+#red{
+	border-style: dotted;
+	border-color: red;
+}
+#blue{
+	border-style: dotted;
+	border-color: blue	;
+}
+.R{
+	border-style: dotted;
+	border-color: red;
+}
+*/
+
+.slogans {
+	float: left;
+	width: 48%;
+	height: 550px;
+}
+
+.child {
+	float: right;
+	width: 48%;
+	height: 550px;
+}
+
+.child img {
+	float: clear both;
+}
+
+.callouts {
+	float: center;
+}
+/* BUTTONS */
+
+.smimg{
+	float: left;
+	margin-top -100px;
+	border-radius: 25px;
+}
+
+.buttons {
+	float: right;
+	margin-top 20px;
+}
+
+.btn-about {
+	background: #69C4CC;
+	border-color: #69C4CC;
+	color: White;
+
+
+}
+
+.btn-contact {
+	background: #99CC33;
+	border-color: #99CC33;
+	color: White;
+}
+
+.btn-blog {
+	background: #6F308B;
+	border-color: #6F308B;
+	color: White;
+}
+
+.btn-press {
+	background: #E9168C;
+	border-color: #E9168C;
+	color: White;
+}

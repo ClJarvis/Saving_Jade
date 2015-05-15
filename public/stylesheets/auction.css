@@ -1,0 +1,27 @@
+// Classes
+.show {
+  display: block !important;
+}
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+.invisible {
+  visibility: hidden;
+}
+
+// Usage as mixins
+.element {
+  .show();
+}
+.another-element {
+  .hidden();
+}
+
+#form_panel{
+	background-color:  #edf9d3;
+}
+
+body {
+	color: red;
+}
