@@ -6,7 +6,7 @@ var UserModel = require("../models/user");
 var Jade = require("../models/jade");
 var app = express.Router();
 
-/* GET users listing. */
+// GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
@@ -52,13 +52,14 @@ app.get("/register", function (req, res) {
 
 // Handle the registration form post
 app.post("/register", function (req, res) {
+    console.log("does register button work");
   var newUser = new UserModel(req.body);
 
   newUser.save(function (err, user) {
     if (err) {
       sendError(req, res, err, "Failed to register user");
     } else {
-      res.redirect("/jade");
+      res.redirect("/jade"); //cut out jade still didn't work?
     }
   });
 });

@@ -22,6 +22,7 @@
 	background-color:  #edf9d3;
 }
 
-body {
-	color: red;
+.success{
+  background-color: #D5F1F0;
+  color: #69C4CC !important;
 }

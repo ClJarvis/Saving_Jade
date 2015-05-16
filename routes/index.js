@@ -16,4 +16,14 @@ router.get('/register', function(req, res, next) {
   res.render('register', { title: 'register page' });
 });
 
+/* GET List items page. */
+router.get('/listItems', function(req, res, next) {
+  res.render('listItems', { title: 'List your auction Items' });
+});
+
+/* GET Edit items page. */
+router.get('/editItems', function(req, res, next) {
+  res.render('editItems', { title: 'Edit your auction Items' });
+});
+
 module.exports = router;
