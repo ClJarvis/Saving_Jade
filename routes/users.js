@@ -23,19 +23,19 @@ var sendError = function (req, res, err, message) {
   });
 };
 
-// Retrieve all tasks for the current user
-var getUserTasks = function (userId) {
+// Retrieve all Items for the current user
+var getUserItems = function (userId) {
   var deferred = Q.defer();
 
   console.log('Another promise to let the calling function know when the database lookup is complete');
 
-  Jade.find({user: userId}, function (err, tasks) {
+  Jade.find({user: userId}, function (err, itemss) {
     if (!err) {
-      console.log('Tasks found = ' + tasks.length);
-      console.log('No errors when looking up tasks. Resolve the promise (even if none were found).');
-      deferred.resolve(tasks);
+      console.log('Items found = ' + items.length);
+      console.log('No errors when looking up items. Resolve the promise (even if none were found).');
+      deferred.resolve(items);
     } else {
-      console.log('There was an error looking up tasks. Reject the promise.');
+      console.log('There was an error looking up items. Reject the promise.');
       deferred.reject(err);
     }
   })
@@ -44,25 +44,17 @@ var getUserTasks = function (userId) {
 };
 
 
+// Handle the registration form post
+app.post("/create", function (req, res) {
+  console.log("Hey I am the register POST handler")
+});
+
 // Handle the request for the registration form
 app.get("/register", function (req, res) {
+  console.log("getting the registration page")
   res.render("register");
 });
 
-
-// Handle the registration form post
-app.post("/register", function (req, res) {
-    console.log("does register button work");
-  var newUser = new UserModel(req.body);
-
-  newUser.save(function (err, user) {
-    if (err) {
-      sendError(req, res, err, "Failed to register user");
-    } else {
-      res.redirect("/jade"); //cut out jade still didn't work?
-    }
-  });
-});
 
 
 // Handle the login action
@@ -79,11 +71,11 @@ app.post("/login", function (req, res) {
 
       console.log('Ok, now we are back in the route handling code and have found a user');
       console.log('validUser',validUser);
-      console.log('Find any tasks that are assigned to the user');
+      console.log('Find any items that are assigned to the user');
 
       // Now find the items that belong to the user
       getUserItems(validUser._id)
-        .then(function (tasks) {
+        .then(function (items) {
           // Render the auction items
           res.redirect("/jade/items"); //change to items
         })
@@ -103,10 +95,10 @@ app.get("/profile", function (req, res) {
   var user = UserController.getCurrentUser();
 
   if (user !== null) {
-    getUserTasks(user._id).then(function (tasks) {
+    getUserItems(user._id).then(function (items) {
       res.render("userProfile", {
         username: user.username,
-        tasks: tasks
+        items: items
       });
     });
   } else {
@@ -121,4 +113,4 @@ res.redirect("/");
 });
 
 
-module.exports = router;
+module.exports = app;

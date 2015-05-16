@@ -6,7 +6,7 @@ block content
 	div.container.bg-primary
 
 		div.row.success
-		div.pull-left.col-md-4.col-md-offset-4
+		div.pull-left.col-md-6.col-md-offset-2
 			div.enterItems.success
 				div.items_form(method="POST", action="/user/register", name="itemsForm")
 				h3 Edit Your Auction Items!
@@ -19,12 +19,12 @@ block content
 				P Auction Ends
 					input(type="text" id="endDate" name="endDate")
 
-<% for (var m = 0; m < movies.length; m++) { %>
-				<% var currentMovie = movies[m]; %>
-				<tr id="movie_<%= currentMovie._id %>">
+- for {var m = 0; m < items.length; m++ }
+{ var currentItem = items[i]; }
+<{r id="movie_<%= currentItem._id %>"}
 				<td><%= currentItem.title %></td>
 				<td><%= currentItem.price %></td>
 				<td><%= currentItem.seller %></td>
 				<td><%= currentItem.endDate %></td>
-				<td><a class="editButton" id="<%= currentMovie._id %>">Edit</a></td>
-				<td><a class="deleteButton" id="<%= currentMovie._id %>">Delete</a></td>
+				input( type="submit", class="editButton" id="<%= currentItem._id %>">Edit
+				input( type="submit", class="deleteButton", id="<%= currentItem._id %>">Delete</a></td>
