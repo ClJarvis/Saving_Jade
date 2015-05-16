@@ -31,7 +31,6 @@ li {
 .bg-primary{
   background-color: white;
   color: black !important;
-
 }
 
 
@@ -46,7 +45,7 @@ li {
 
 .navbar{
 	background-color:  #F3CECD;
-	color:  #6F1549;
+	color: #6F1549;
 	height: 15px;
 	z-index: 999;
 	font-weight: bolder;

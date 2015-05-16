@@ -13,7 +13,8 @@ head
 	div.container
 	div.row
 		div.pull-left.col-md-3.col-md-offset-9
-			a(href="register") Sign In |
+			a(href="/") Home |
+			a(href="register")  Sign In |
 			a(href="sign out")  Sign Out
 	div.container.bg-primary
 		div.smimg
@@ -31,9 +32,9 @@ head
 			div.col-md-1
 				a(href="Buy") Buy
 			div.col-md-1
-				a(href="Sell") Sell
+				a(href="listItems") List your items
 			div.col-md-2
-				a(href="How It Works") How It Works
+				a(href="editItems") Edit your Items
 			div.col-md-1
 				a(href="Links") Links
 			div.col-md-1
@@ -44,3 +45,9 @@ head
 
 
 	block content
+
+script( src="//code.jquery.com/jquery-1.11.2.min.js")
+script( src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js")
+script(type='text/javascript' src='javascripts/main.js')
+script(type='text/javascript' src='javascripts/jadeHandler.js')
+
