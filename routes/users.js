@@ -47,6 +47,7 @@ var getUserItems = function (userId) {
 // Handle the registration form post
 app.post("/create", function (req, res) {
   console.log("Hey I am the register POST handler")
+  res.render("profile");
 });
 
 // Handle the request for the registration form

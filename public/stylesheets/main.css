@@ -128,7 +128,8 @@ li {
 
 .buttons {
 	float: right;
-	margin-top 20px;
+	margin-top: 80px;
+	margin-right: 450px;
 }
 
 .btn-about {

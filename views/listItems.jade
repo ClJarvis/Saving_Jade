@@ -8,16 +8,16 @@ block content
 		div.row.success
 		div.pull-left.col-md-4.col-md-offset-4
 			div.enterItems.success
-				div.items_form(method="POST", action="/user/register", name="itemsForm")
-				h3 List Your Auction Items!
-				p Title
-					input(type="text" id="title" name="title")
-				P Price
-					input(type="text" id="price" name="price")
-				p Seller
-					input(type="text" id="seller" name="seller")
-				P Auction Ends
-					input(type="text" id="endDate" name="endDate")
+				form.items_form(method="POST", action="/listItems", name="itemsForm")
+					h3 List Your Auction Items!
+					p Title
+						input(type="text" id="title" name="title")
+					p Price
+						input(type="text" id="price" name="price")
+					p Seller
+						input(type="text" id="seller" name="seller")
+					P Auction Ends
+						input(type="text" id="endDate" name="endDate")
 
-				input(type="submit", class="submitButton", value="submit")
-				p
+					input(type="submit", class="submitButton", value="submit")
+					p
