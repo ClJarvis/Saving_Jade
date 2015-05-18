@@ -3,8 +3,10 @@ var express = require('express');
 var router = express.Router();
 var UserController = require("../userController");
 var UserModel = require("../models/user");
-var Jade = require("../models/jade");
+var Shop = require("../models/shop");
 var app = express.Router();
+var itemsList=[];
+//change jade to shop, change tasks to items
 
 // GET users listing. */
 router.get('/', function(req, res, next) {
@@ -29,7 +31,7 @@ var getUserItems = function (userId) {
 
   console.log('Another promise to let the calling function know when the database lookup is complete');
 
-  Jade.find({user: userId}, function (err, itemss) {
+  Shop.find({user: userId}, function (err, items) {
     if (!err) {
       console.log('Items found = ' + items.length);
       console.log('No errors when looking up items. Resolve the promise (even if none were found).');
@@ -42,18 +44,25 @@ var getUserItems = function (userId) {
 
   return deferred.promise;
 };
+//lines 46-65 moved from users in movie app see test js
+// Handle the request for the registration form
+app.get("/register", function (req, res) {
+  res.render("register");
+});
 
 
 // Handle the registration form post
-app.post("/create", function (req, res) {
-  console.log("Hey I am the register POST handler")
-  res.render("profile");
-});
+app.post("/register", function (req, res) {
+  console.log("hit post /register");
+  var newUser = new UserModel(req.body);
 
-// Handle the request for the registration form
-app.get("/register", function (req, res) {
-  console.log("getting the registration page")
-  res.render("register");
+  newUser.save(function (err, user) {
+    if (err) {
+      sendError(req, res, err, "Failed to register user");
+    } else {
+      res.redirect("/");
+    }
+  });
 });
 
 
@@ -63,7 +72,7 @@ app.post("/login", function (req, res) {
 
   console.log('Hi, this is Node handling the /user/login route');
 
-  // Attempt to log the user is with provided credentials
+  // Attempt to log the user in with provided credentials
   UserController.login(req.body.username, req.body.password)
 
     // After the database call is complete and successful,
@@ -78,7 +87,7 @@ app.post("/login", function (req, res) {
       getUserItems(validUser._id)
         .then(function (items) {
           // Render the auction items
-          res.redirect("/jade/items"); //change to items
+          res.redirect("/shop/items"); //changed to items
         })
         .fail(function (err) {
           sendError(req, res, {errors: err.message}, "Failed")

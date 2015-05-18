@@ -11,7 +11,7 @@ router.get('/auction', function(req, res, next) {
   res.render('auction', { title: 'auction page' });
 });
 
-/* GET Register. */
+/* GET Register.*/
 router.get('/register', function(req, res, next) {
   res.render('register', { title: 'register page' });
 });
