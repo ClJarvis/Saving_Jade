@@ -142,7 +142,7 @@ router.post('/listItems', function (req, res, next) {
       } else {
         // Found it. Now update the values based on the form POST data.
         foundShop.title = req.body.title;
-        foundShop.description = req.body.price;
+        foundShop.price = req.body.price;
 
         foundShop.endDate = req.body.endDate;
 

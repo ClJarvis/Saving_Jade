@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var UserController = require('../userController');
-var shopList = []; ///////////////shopList or shopItems same on entire page
-
+var shopList = [];
 // Include the model for a shop auction item that we set up in Mongoose
 var Shop = require('../models/shop');
 

@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   // User clicked on an edit button
   $(".editButton").click(function () {
-    window.location.href = "/Shop/" + $(this)[0].id;
+    window.location.href = "/shop" + $(this)[0].id;
   });
 
   // User clicked on a delete button
@@ -10,13 +10,13 @@ $(document).ready(function() {
     var shopItemId = $(this)[0].id;
 
     $.ajax({
-      url: "/Shop",
+      url: "/shop",
       method: "DELETE",
       data: {
         shop_id: shopItemId
       },
       success: function (response) {
-        $("#Shop_"+shopItemId).remove();  // Remove the DOM element on success
+        $("#shop_"+shopItemId).remove();  // Remove the DOM element on success
       }
     });
   });

@@ -18,17 +18,46 @@
   .hidden();
 }
 
-#form_panel{
-	background-color:  #edf9d3;
+.form_panel {
+  background-color: #edf9d3;
+  float: left;
+  width: 25%;
 }
+
+.items {
+  background-color: white;
+  float:right;
+  width: 70%;
+}
+
 
 .success{
   background-color: #D5F1F0;
   color: #69C4CC !important;
 }
 
+.h4 {
+  color: #6F1549;
+    font-weight: bolder;
+}
+
+.h5 {
+  color: #8db639;
+    font-weight: bolder;
+}
+
+.h5.sell {
+  font-weight: bolder;
+  color: #69C4CC;
+}
+
+.h5.date {
+  font-weight: bolder;
+  color: #E9168C;
+}
+
 /* Log in style*/
 .info{
   background-color: #F3CECD;
-  color: color: #6F1549 !important;
+  color: black !important;
 }
