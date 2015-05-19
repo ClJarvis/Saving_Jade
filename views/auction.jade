@@ -71,6 +71,15 @@ block content
 
 					div.items
 						P Auction items
+						each item in items
+							div
+								ul
+									li h4 #{item.title}
+									li #{item.price}
+									li #{item.seller}
+									li #{item.endDate}
+									input(type="button", class="editButton", value="edit" id="#{item._id}")
+									input(type="button" class="deleteButton" value="delete" 	)
 					div.footer
 							div.row
 							div.col-md-4
