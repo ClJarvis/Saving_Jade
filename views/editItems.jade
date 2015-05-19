@@ -19,12 +19,4 @@ block content
 				P Auction Ends
 					input(type="text" id="endDate" name="endDate")
 
-<% for (var m = 0; m < movies.length; m++) { %>
-				<% var currentMovie = movies[m]; %>
-				<tr id="movie_<%= currentMovie._id %>">
-				<td><%= currentItem.title %></td>
-				<td><%= currentItem.price %></td>
-				<td><%= currentItem.seller %></td>
-				<td><%= currentItem.endDate %></td>
-				<td><a class="editButton" id="<%= currentMovie._id %>">Edit</a></td>
-				<td><a class="deleteButton" id="<%= currentMovie._id %>">Delete</a></td>
+

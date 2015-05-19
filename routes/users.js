@@ -44,28 +44,19 @@ var getUserItems = function (userId) {
 
   return deferred.promise;
 };
-//lines 46-65 moved from users in movie app see test js
-// Handle the request for the registration form
-app.get("/register", function (req, res) {
-  res.render("register");
-});
 
 
 // Handle the registration form post
-app.post("/register", function (req, res) {
-  console.log("hit post /register");
-  var newUser = new UserModel(req.body);
-
-  newUser.save(function (err, user) {
-    if (err) {
-      sendError(req, res, err, "Failed to register user");
-    } else {
-      res.redirect("/");
-    }
-  });
+app.post("/create", function (req, res) {
+  console.log("Hey I am the register POST handler")
+  res.render("profile");
 });
 
-
+// Handle the request for the registration form
+app.get("/register", function (req, res) {
+  console.log("getting the registration page")
+  res.render("register");
+});
 
 // Handle the login action
 app.post("/login", function (req, res) {

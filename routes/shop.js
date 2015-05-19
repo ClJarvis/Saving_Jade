@@ -1,7 +1,7 @@
-var UserController = require('../userController');
 var express = require('express');
 var router = express.Router();
-var shopList = [];
+var UserController = require('../userController');
+var shopList = []; ///////////////shopList or shopItems same on entire page
 
 // Include the model for a shop auction item that we set up in Mongoose
 var Shop = require('../models/shop');
@@ -26,12 +26,12 @@ var sendShopList = function (req, res, next) {
 
 
   Shop.find({}, function (err, items) {
-
+  console.log(items);
     // swap out the user.-id for user.username in each item
 
     //loop over item array and put in the username
     // instead of the _id for each item
- for (var i = 0; i <items.length;  i++) {
+ for (var i = 0; i <items.length; i++) {   ///shopList or items
     items[i].user = theUser.username;
 
 };
@@ -42,9 +42,10 @@ var sendShopList = function (req, res, next) {
       console.log(err);
       sendError(req, res, err, "Could not get item list");
     } else {
-      res.render("shopList", {
-        title: "List of items",
-        message: "Things you still need to do",
+      res.render("listItems", {
+        title: '',
+        price: '',
+        endDate: '',
         items: items,
         user: theUser.username
       });
@@ -52,7 +53,7 @@ var sendShopList = function (req, res, next) {
   });
 };
 
-// Handle a GET request from the client to /todo/list
+// Handle a GET request from the client to /shop/list
 router.get('/list', function (req,res,next) {
   // Is the user logged in?
   if (UserController.getCurrentUser() === null) {
@@ -61,6 +62,12 @@ router.get('/list', function (req,res,next) {
 
   sendShopList(req, res, next);
 });
+
+// GET List items page. */
+router.get('/listItems', function(req, res, next) {
+  res.render('listItems', { title: 'List your auction Items' });
+});
+
 
 // Handle a GET request from the client to /todo/:id
 router.get('/:id', function (req, res) {
@@ -79,7 +86,7 @@ router.get('/:id', function (req, res) {
 
     // Find was successful
     } else {
-      res.render('listItems', {
+      res.render('listItems', { //listItems
         title : 'Express Todo Example',
         shop: thisItem
       });
@@ -96,14 +103,11 @@ router.get('/', function (req, res) {
   }
 
   // Send the todo form back to the client
-  res.render('shop', {
-    title : 'Express Todo Example',
-    todo: {
+  res.render('listItems', {
+    listItems: {
       title: '',
-      description: '',
-      priority: 1,
-      due_date: new Date(),
-      complete: false
+      price: '',
+      endate: ''
     }
   });
 });
@@ -125,10 +129,10 @@ router.delete('/', function (req, res) {
 });
 
 // Handle a POST request from the client to /todo
-router.post('/', function (req, res, next) {
+router.post('/listItems', function (req, res, next) {
 
   // User is editing an existing item
-  if (req.body.db_id !== "") {
+  if (req.body.db_id ) {
 
     // Find it
     Shop.findOne({ _id: req.body.db_id }, function (err, foundShop) {
@@ -137,11 +141,10 @@ router.post('/', function (req, res, next) {
         sendError(req, res, err, "Could not find that item");
       } else {
         // Found it. Now update the values based on the form POST data.
-        foundTodo.title = req.body.title;
-        foundTodo.description = req.body.description;
-        foundTodo.priority = req.body.priority;
-        foundTodo.due_date = req.body.due_date;
-        foundTodo.complete = (req.body.complete) ? req.body.complete : false;
+        foundShop.title = req.body.title;
+        foundShop.price = req.body.price;
+
+        foundShop.endDate = req.body.endDate;
 
         // Save the updated item.
         foundShop.save(function (err, newOne) {
@@ -159,7 +162,9 @@ router.post('/', function (req, res, next) {
 
     // Who is the user?
     var theUser = UserController.getCurrentUser();
-
+    if (!theUser) {
+      res.redirect('/users/login');
+    }
     // What did the user enter in the form?
     var theFormPostData = req.body
     theFormPostData.user = theUser._id;
@@ -173,7 +178,7 @@ router.post('/', function (req, res, next) {
       if (err) {
         sendError(req, res, err, "Failed to save item");
       } else {
-        res.redirect('/shop/list');
+        res.redirect('/auction');
       }
     });
   }
