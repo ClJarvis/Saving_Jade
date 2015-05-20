@@ -22,6 +22,13 @@ block content
 - for {var i = 0; i < items.length; i++ }
 { var currentItem = items[i]; }
 <{r id="shop_<%= currentItem._id %>"}
+ul
+							li.h4 #{item.title}
+							li.h5 #{item.price}
+							li.h5.sell #{item.seller}
+							li.h5.date #{item.endDate}
+							input(type="button" class="editButton", value="edit" id="#{item._id}")
+							input(type="button" class="deleteButton" value="delete" 	id="#{item._id}")s
 				<td><%= currentItem.title %></td>
 				<td><%= currentItem.price %></td>
 				<td><%= currentItem.seller %></td>

@@ -23,6 +23,11 @@ router.get('/register', function(req, res, next) {
   res.render('register', { title: 'register page' });
 });
 
+/* GET Login.*/
+router.get('/login', function(req, res, next) {
+  res.render('login', { title: 'login page' });
+});
+
 /* GET Profile. */
 router.get('/profile', function(req, res, next) {
   myShopList(req, res, next);
