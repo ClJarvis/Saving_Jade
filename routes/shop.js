@@ -45,6 +45,7 @@ var sendShopList = function (req, res, next) {
       res.render("listItems", {
         title: '',
         price: '',
+        image: '',
         endDate: '',
         items: items,
         user: theUser.username
@@ -87,7 +88,7 @@ router.get('/:id', function (req, res) {
     // Find was successful
     } else {
       res.render('listItems', { //listItems
-        title : 'Express Todo Example',
+        title : 'Auction Items',
         shop: thisItem
       });
     }
@@ -106,6 +107,7 @@ router.get('/', function (req, res) {
   res.render('listItems', {
     listItems: {
       title: '',
+      image: '',
       price: '',
       endate: ''
     }
@@ -129,25 +131,25 @@ router.delete('/', function (req, res) {
 });
 
 // Handle a POST request from the client to /todo
-router.post('/listItems', function (req, res, next) {
+router.post('/listItems', function (req, res, next) { //removed listItems to see if that fixes edit
 
   // User is editing an existing item
   if (req.body.db_id ) {
 
     // Find it
-    Shop.findOne({ _id: req.body.db_id }, function (err, foundShop) {
+    Shop.findOne({ _id: req.body.db_id }, function (err, foundlistitems) {
 
       if (err) {
         sendError(req, res, err, "Could not find that item");
       } else {
         // Found it. Now update the values based on the form POST data.
-        foundShop.title = req.body.title;
-        foundShop.price = req.body.price;
-
-        foundShop.endDate = req.body.endDate;
+        foundlistitems.title = req.body.title;
+        foundlistItems.price = req.body.price;
+        foundlistItems.image = req.body.image;
+        foundlistItems.endDate = req.body.endDate;
 
         // Save the updated item.
-        foundShop.save(function (err, newOne) {
+        foundlistItems.save(function (err, newOne) {
           if (err) {
             sendError(req, res, err, "Could not save item with updated information");
           } else {

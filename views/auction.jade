@@ -70,7 +70,8 @@ block content
 						P Brand:
 
 			div.items
-				P Auction items
+				P
+				h3 Auction items!
 				each item in items
 					div
 						ul
@@ -78,9 +79,10 @@ block content
 							li.h5 #{item.price}
 							li.h5.sell #{item.seller}
 							li.h5.date #{item.endDate}
-							input(type="button", class="editButton", value="edit" id="#{item._id}")
+							input(type="button" class="editButton", value="edit" id="#{item._id}")
 							input(type="button" class="deleteButton" value="delete" 	id="#{item._id}")
 						br
+
 			div.footer
 					div.row
 					div.col-md-4

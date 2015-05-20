@@ -6,14 +6,12 @@ block content
 		div.row.info
 		div.pull-left.col-md-6.col-md-offset-2
 			div.enterItems.info
-				form.register_form(method="POST", action="/users/create", name="registerForm")
-					h3 Register Your Savings Multiplied Account!
+				form.register_form(method="POST", action="/users/login", name="loginForm")
+					h3 Log into Your Savings Multiplied Account!
 					p Username
 					input(type="text" id="username" name="username")
 					p Password
 					input(type="password" id="password" name="password")
 
 					input(type="submit", class="submitButton", value="submit")
-
-
 
