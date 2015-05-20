@@ -76,6 +76,8 @@ block content
 					div
 						ul
 							li.h4 #{item.title}
+							div.auctionimg
+								img.Img(src='#{item.image}')
 							li.h5 #{item.price}
 							li.h5.sell #{item.seller}
 							li.h5.date #{item.endDate}
