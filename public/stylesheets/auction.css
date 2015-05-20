@@ -21,13 +21,14 @@
 .form_panel {
   background-color: #edf9d3;
   float: left;
-  width: 25%;
+  width: 30%;
 }
 
 .items {
   background-color: white;
   float:right;
-  width: 70%;
+  width: 64%;
+  height: 30px;
 }
 
 

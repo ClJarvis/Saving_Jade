@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 var shopSchema = mongoose.Schema({
     title: {type: String, required: true, default: ''},
+    image:{type: String, required: true, default: ''},
     // description: {type: String, required: true, default: ''},
     price: {type: String, required: true},
     seller: {type: String, required: true},
