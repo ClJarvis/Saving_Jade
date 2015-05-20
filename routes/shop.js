@@ -45,6 +45,7 @@ var sendShopList = function (req, res, next) {
       res.render("listItems", {
         title: '',
         price: '',
+        image: '',
         endDate: '',
         items: items,
         user: theUser.username
@@ -87,7 +88,7 @@ router.get('/:id', function (req, res) {
     // Find was successful
     } else {
       res.render('listItems', { //listItems
-        title : 'Express Todo Example',
+        title : 'Auction Items',
         shop: thisItem
       });
     }
@@ -106,6 +107,7 @@ router.get('/', function (req, res) {
   res.render('listItems', {
     listItems: {
       title: '',
+      image: '',
       price: '',
       endate: ''
     }
@@ -143,7 +145,7 @@ router.post('/listItems', function (req, res, next) {
         // Found it. Now update the values based on the form POST data.
         foundShop.title = req.body.title;
         foundShop.price = req.body.price;
-
+        foundShop.image = req.body.image;
         foundShop.endDate = req.body.endDate;
 
         // Save the updated item.
