@@ -3,7 +3,7 @@ $(document).ready(function() {
   // User clicked on an edit button
   $(".editButton").click(function () {
     console.log("you clicked the edit button!")
-    window.location.href = "/shop/" + $(this)[0].id;
+    window.location.href = "/shop/listItems/" + $(this)[0].id;
   });
 
   // User clicked on a delete button

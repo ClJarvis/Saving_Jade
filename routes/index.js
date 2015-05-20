@@ -115,10 +115,10 @@ var myShopList = function (req, res, next) {
 };
 
 
-
-
- // GET Edit items page.
+ //GET Edit items page.
 // router.get('/editItems', function(req, res, next) {
 //   res.render('editItems', { title: 'Edit your auction Items' });
 // });
+
+
 module.exports = router;
