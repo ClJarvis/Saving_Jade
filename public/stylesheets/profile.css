@@ -1,6 +1,10 @@
-/* profile*/
-.success{
+
+.profile.success {
   background-color: #F3CECD;
-  color: #6F1549 !important;
+  color: white !important;
   height: 400px;
+  padding: 55px;
+}
+h4 {
+	color: white;
 }
