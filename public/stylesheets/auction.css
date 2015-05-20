@@ -29,7 +29,6 @@
   background-color: white;
   float:right;
   width: 64%;
-  height: 30px;
 }
 
 
@@ -56,6 +55,11 @@
 .h5.date {
   font-weight: bolder;
   color: #E9168C;
+}
+
+#auctionimg {
+  height: 200px;
+  width: 200px;
 }
 
 /* Log in style*/
