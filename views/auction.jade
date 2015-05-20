@@ -73,10 +73,10 @@ block content
 				P
 				h3 Auction items!
 				each item in items
-					div
+					div.auctionimg
 						ul
 							li.h4 #{item.title}
-							div.auctionimg
+							div
 								img.Img(src='#{item.image}')
 							li.h5 #{item.price}
 							li.h5.sell #{item.seller}

@@ -57,9 +57,9 @@
   color: #E9168C;
 }
 
-#auctionimg {
-  height: 200px;
-  width: 200px;
+auctionimg {
+  height: 300px;
+  width: 150px;
 }
 
 /* Log in style*/

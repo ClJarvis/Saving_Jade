@@ -43,10 +43,10 @@ var sendShopList = function (req, res, next) {
       sendError(req, res, err, "Could not get item list");
     } else {
       res.render("listItems", {
-        title: '',
-        price: '',
-        image: '',
-        endDate: '',
+        title: ' ',
+        price: ' ',
+        image: ' ',
+        endDate: ' ',
         items: items,
         user: theUser.username
       });
@@ -64,18 +64,36 @@ router.get('/list', function (req,res,next) {
   sendShopList(req, res, next);
 });
 
-// GET List items page. */
-router.get('/listItems', function(req, res, next) {
-  res.render('listItems', { title: 'List your auction Items' });
+
+// Handle a GET request from the client to /todo
+router.get('/listItems', function (req, res) {
+
+  // Is the user logged in?
+  if (UserController.getCurrentUser() === null) {
+    res.redirect("/users/login");
+  }
+  console.log("this is the GET for the listItems page")
+
+  // Send the todo form back to the client
+  res.render('listItems', {
+     shop: {
+      title: ' ',
+      image: ' ',
+      price: ' ',
+      endDate: ' ',
+      seller: '',
+      _id: ''
+    }
+  });
 });
 
 
 // Handle a GET request from the client to /todo/:id
-router.get('/:id', function (req, res) {
+router.get('/listItems/:id', function (req, res) {
 
   // Is the user logged in?
   if (UserController.getCurrentUser() === null) {
-    res.redirect("/");
+    res.redirect("/users/login");
   }
 
   Shop.find({ _id: req.params.id }, function (err, item) {
@@ -91,25 +109,6 @@ router.get('/:id', function (req, res) {
         title : 'Auction Items',
         shop: thisItem
       });
-    }
-  });
-});
-
-// Handle a GET request from the client to /todo
-router.get('/', function (req, res) {
-
-  // Is the user logged in?
-  if (UserController.getCurrentUser() === null) {
-    res.redirect("/");
-  }
-
-  // Send the todo form back to the client
-  res.render('listItems', {
-    listItems: {
-      title: '',
-      image: '',
-      price: '',
-      endate: ''
     }
   });
 });
@@ -134,26 +133,27 @@ router.delete('/', function (req, res) {
 router.post('/listItems', function (req, res, next) { //removed listItems to see if that fixes edit
 
   // User is editing an existing item
-  if (req.body.db_id ) {
+  if (req.body.edit_item_id !=='' ) {
+console.log("i'm trying to edit", req.body);
 
     // Find it
-    Shop.findOne({ _id: req.body.db_id }, function (err, foundlistitems) {
+    Shop.findOne({ _id: req.body.edit_item_id }, function (err, foundlistitems) {
 
       if (err) {
         sendError(req, res, err, "Could not find that item");
       } else {
         // Found it. Now update the values based on the form POST data.
         foundlistitems.title = req.body.title;
-        foundlistItems.price = req.body.price;
-        foundlistItems.image = req.body.image;
-        foundlistItems.endDate = req.body.endDate;
+        foundlistitems.price = req.body.price;
+        foundlistitems.image = req.body.image;
+        foundlistitems.endDate = req.body.endDate;
 
         // Save the updated item.
-        foundlistItems.save(function (err, newOne) {
+        foundlistitems.save(function (err, newOne) {
           if (err) {
             sendError(req, res, err, "Could not save item with updated information");
           } else {
-            res.redirect('/shop/list');
+            res.redirect('/auction');
           }
         });
       }
