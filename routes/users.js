@@ -78,7 +78,7 @@ app.post("/login", function (req, res) {
       getUserItems(validUser._id)
         .then(function (items) {
           // Render the auction items
-          res.redirect("/shop/listItems"); //changed to items
+          res.redirect("/profile"); //changed to items
         })
         .fail(function (err) {
           sendError(req, res, {errors: err.message}, "Failed")
