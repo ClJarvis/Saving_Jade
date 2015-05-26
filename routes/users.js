@@ -52,6 +52,7 @@ app.post("/create", function (req, res) {
   res.render("profile");
 });
 
+
 // Handle the request for the registration form
 app.get("/register", function (req, res) {
   console.log("getting the registration page")
@@ -112,6 +113,7 @@ app.get("/logout", function (req, res) {
 UserController.logout();
 res.redirect("/");
 });
+
 
 
 module.exports = app;
