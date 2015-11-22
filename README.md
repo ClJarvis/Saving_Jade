@@ -1,3 +1,3 @@
-# Saving_Jade
+# Saving Jade
 
 A basic CRUD app with JADE.
